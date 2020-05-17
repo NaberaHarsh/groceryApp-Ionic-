@@ -15,26 +15,29 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 import { Redirect, Route } from 'react-router-dom';
-import { IonReactRouter} from '@ionic/react-router';
-import {IonRouterOutlet,IonApp} from '@ionic/react';
+import { IonReactRouter } from '@ionic/react-router';
+import { IonRouterOutlet, IonApp, IonPage } from '@ionic/react';
 import Menu from './components/Menu';
 import Dashboard from './components/dashboard';
 import Product from './components/Product'
-
+import Category from './components/Category'
 
 function App() {
   return (
-    <IonApp>
-      
-  <IonReactRouter>
-    <IonRouterOutlet>
-      <Menu />
-      <Route path="/dashboard" render={()=> <Dashboard />} />
-      <Route path="/product" render={()=> <Product />}/>
-      {/* <Redirect exact from="/" to="/dashboard" /> */}
-    </IonRouterOutlet>
-  </IonReactRouter>
-</IonApp>
+    <IonPage>
+
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Menu />
+          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/product" component={Product} />
+          <Route path="/category" component={Category} />
+
+
+          <Redirect exact from="/" to="/dashboard" />
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonPage>
   );
 }
 
