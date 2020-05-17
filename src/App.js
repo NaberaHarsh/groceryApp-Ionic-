@@ -1,25 +1,40 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import '@ionic/react/css/core.css';
+/* Basic CSS for apps built with Ionic */
+import '@ionic/react/css/normalize.css';
+import '@ionic/react/css/structure.css';
+import '@ionic/react/css/typography.css';
+
+/* Optional CSS utils that can be commented out */
+import '@ionic/react/css/padding.css';
+import '@ionic/react/css/float-elements.css';
+import '@ionic/react/css/text-alignment.css';
+import '@ionic/react/css/text-transformation.css';
+import '@ionic/react/css/flex-utils.css';
+import '@ionic/react/css/display.css';
+import { Redirect, Route } from 'react-router-dom';
+import { IonReactRouter} from '@ionic/react-router';
+import {IonRouterOutlet,IonApp} from '@ionic/react';
+import Menu from './components/Menu';
+import Dashboard from './components/dashboard';
+import Product from './components/Product'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <IonApp>
+      
+  <IonReactRouter>
+    <IonRouterOutlet>
+      <Menu />
+      <Route path="/dashboard" render={()=> <Dashboard />} />
+      <Route path="/product" render={()=> <Product />}/>
+      {/* <Redirect exact from="/" to="/dashboard" /> */}
+    </IonRouterOutlet>
+  </IonReactRouter>
+</IonApp>
   );
 }
 
