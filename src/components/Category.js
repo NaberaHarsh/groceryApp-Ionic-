@@ -59,15 +59,18 @@ class Category extends React.Component {
         return (
             <IonPage>
                 <IonContent >
+                <br />
+                <br />
+                <br />
                     <IonCard color="danger" style={{ color: 'black', fontSize: '16px', fontWeight: "bold" }}>
                         <IonGrid>
                             <IonRow>
                                 <IonCol size="1">Id</IonCol>
                                 <IonCol size="3">Image</IonCol>
                                 <IonCol size="2">Name</IonCol>
-                                <IonCol size="3">Description</IonCol>
-                                <IonCol size="1">Discount</IonCol>
-                                <IonCol size="2">In Stock</IonCol>
+                                <IonCol size="3">Info</IonCol>
+                                <IonCol size="1.5">Discount</IonCol>
+                                <IonCol size="1.5">In Stock</IonCol>
 
                             </IonRow>
                         </IonGrid>
@@ -80,8 +83,8 @@ class Category extends React.Component {
                                             <IonCol size="3"><img src={p.image} width="80" height="80" /></IonCol>
                                             <IonCol size="2">{p.title}</IonCol>
                                             <IonCol size="3" >{p.desc}</IonCol>
-                                            <IonCol size="1" >{p.discount}</IonCol>
-                                            <IonCol size="2" >{p.stock}</IonCol>
+                                            <IonCol size="1.5" >{p.discount}</IonCol>
+                                            <IonCol size="1.5" >{p.stock}</IonCol>
 
 
                                         </IonRow>

@@ -1,7 +1,12 @@
 import React from 'react';
-import { IonButton, IonContent, IonIcon, IonLabel, IonButtons, IonMenuButton, IonSearchbar, IonApp, IonHeader, IonToolbar, IonTitle, IonMenu, IonItem, IonList } from '@ionic/react';
+import { IonButton, IonContent, IonIcon, IonLabel, IonButtons, IonMenuButton, IonSearchbar, IonApp, IonHeader, IonToolbar, IonTitle, IonMenu, IonItem, IonList, IonRouterOutlet, IonMenuToggle } from '@ionic/react';
 import { home, layers, list, cart, flame } from 'ionicons/icons'
-
+import { Redirect, Route } from 'react-router-dom';
+import Dashboard from './dashboard';
+import Product from './Product'
+import Category from './Category'
+import Offer from './Offer';
+import Cart from './Cart'
 
 class Menu extends React.Component {
     constructor(props) {
@@ -11,8 +16,18 @@ class Menu extends React.Component {
     render() {
         return (
             <IonApp>
+<IonRouterOutlet>
+<Route path="/dashboard" component={Dashboard} />
+          <Route path="/product" component={Product} />
+          <Route path="/category" component={Category} />
+          <Redirect exact from="/" to="/dashboard" />
+          <Route path="/offer" component={Offer} />
+          <Route path="/cart" component={Cart} />
 
-                <IonMenu menuId="main-menu" side="start" contentId="main-content">
+          
+
+</IonRouterOutlet>
+                <IonMenu menuId="main-menu" side="start" contentId="main-content" swipeGesture={true} >
                     <IonHeader>
                         <IonToolbar>
                             <IonTitle>
@@ -22,26 +37,29 @@ class Menu extends React.Component {
                     </IonHeader>
                     <IonContent>
                         <IonList>
-                            <IonItem routerLink="/dashboard">
+                            <IonMenuToggle>
+                            <IonItem routerLink="/dashboard" >
                                 <IonIcon icon={home} slot="start"></IonIcon>
                                 <IonLabel>Home</IonLabel>
                             </IonItem>
-                            <IonItem routerLink="/product">
+                            <IonItem routerLink="/product" >
                                 <IonIcon icon={list} slot="start"></IonIcon>
                                 <IonLabel>Products</IonLabel>
                             </IonItem>
-                            <IonItem routerLink="/category">
+                            <IonItem routerLink="/category" >
                                 <IonIcon icon={layers} slot="start"></IonIcon>
                                 <IonLabel>Category</IonLabel>
-                            </IonItem>
-                            <IonItem routerLink="/cart">
-                                <IonIcon icon={cart} slot="start"></IonIcon>
-                                <IonLabel>Cart</IonLabel>
                             </IonItem>
                             <IonItem routerLink="/offer">
                                 <IonIcon icon={flame} slot="start"></IonIcon>
                                 <IonLabel>Offer</IonLabel>
                             </IonItem>
+                            <IonItem routerLink="/cart">
+                                <IonIcon icon={cart} slot="start"></IonIcon>
+                                <IonLabel>Cart</IonLabel>
+                            </IonItem>
+                            
+                            </IonMenuToggle>
                         </IonList>
                     </IonContent>
 
@@ -53,12 +71,13 @@ class Menu extends React.Component {
                             <IonButtons slot="start">
                                 <IonMenuButton></IonMenuButton>
                             </IonButtons>
-                            <IonTitle>Product</IonTitle>
-                            <IonSearchbar slot="secondary" style={{ width: 200 }} showCancelButton="focus" cancelButtonText="Custom Cancel" animated></IonSearchbar>
+                            <IonTitle>Grocery Store</IonTitle>
+                            <IonSearchbar slot="secondary" style={{ width: 200 }} showCancelButton="focus" cancelButtonText="Custom Cancel" animated={true}></IonSearchbar>
                         </IonToolbar>
                     </IonHeader>
 
                 </div>
+                
             </IonApp>
 
         )

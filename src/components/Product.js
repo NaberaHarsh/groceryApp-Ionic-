@@ -80,6 +80,9 @@ class Product extends React.Component {
             <IonPage>
                 
                 <IonContent >
+                <br />
+                <br />
+                <br />
                     <IonCard color="danger" style={{ color: 'black', fontSize: '16px', fontWeight: "bold" }}>
                         <IonGrid>
                             <IonRow>

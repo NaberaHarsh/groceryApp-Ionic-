@@ -1,6 +1,5 @@
 import React from 'react';
-import { IonApp, IonContent, IonCardHeader, IonCardContent, IonCardTitle, IonMenu, IonList, IonItem, IonMenuButton, IonSearchbar, IonLabel, IonIcon, IonCard, IonGrid, IonRow, IonCol, IonHeader, IonToolbar, IonTitle, IonButtons } from '@ionic/react';
-import { home, layers, list, cart, flame } from 'ionicons/icons'
+import { IonApp, IonContent, IonCardHeader, IonCardContent, IonCardTitle, IonCard, IonGrid, IonRow, IonCol, IonHeader, IonToolbar, IonTitle, IonButtons, IonPage } from '@ionic/react';
 
 
 class Dashboard extends React.Component {
@@ -49,57 +48,11 @@ class Dashboard extends React.Component {
     }
     render() {
         return (
-            <IonApp>
-                <div id="main-content">
-                    <IonHeader>
-                        <IonToolbar color="danger">
-                            <IonButtons slot="start">
-                                <IonMenuButton></IonMenuButton>
-                            </IonButtons>
-                            <IonTitle>Dashboard</IonTitle>
-                            <IonSearchbar slot="secondary" style={{ width: 200 }} showCancelButton="focus" cancelButtonText="Custom Cancel" animated></IonSearchbar>
-                        </IonToolbar>
-                    </IonHeader>
-
-                </div>
-                <IonMenu menuId="main-menu" side="start" contentId="main-content">
-                    <IonHeader>
-                        <IonToolbar>
-                            <IonTitle>
-                                Grocery Dashboard
-                </IonTitle>
-                        </IonToolbar>
-                    </IonHeader>
-                    <IonContent>
-                        <IonList>
-                            <IonItem routerLink="/dashboard">
-                                <IonIcon icon={home} slot="start"></IonIcon>
-                                <IonLabel>Home</IonLabel>
-                            </IonItem>
-                            <IonItem routerLink="/product">
-                                <IonIcon icon={list} slot="start"></IonIcon>
-                                <IonLabel>Products</IonLabel>
-                            </IonItem>
-                            <IonItem routerLink="/category">
-                                <IonIcon icon={layers} slot="start"></IonIcon>
-                                <IonLabel>Category</IonLabel>
-                            </IonItem>
-                            <IonItem routerLink="/cart">
-                                <IonIcon icon={cart} slot="start"></IonIcon>
-                                <IonLabel>Cart</IonLabel>
-                            </IonItem>
-                            <IonItem routerLink="/offer">
-                                <IonIcon icon={flame} slot="start"></IonIcon>
-                                <IonLabel>Offer</IonLabel>
-                            </IonItem>
-                        </IonList>
-                    </IonContent>
-
-                </IonMenu>
-
-
-                <IonContent color="danger">
-
+            <IonPage>
+                 <IonContent color="danger">
+                 <br />
+                <br />
+                <br />
                     <IonGrid>
                         <IonRow>
                             {this.state.cardItems.map(p => {
@@ -137,7 +90,7 @@ class Dashboard extends React.Component {
                                     return (
                                         <IonCol sizeMd="4" sizeLg="4" sizeSm="12" sizeXs="12">
                                             <IonCard>
-                                                <IonCardTitle >{e.title}</IonCardTitle>
+                                                <IonCardTitle style={{textAlign:"center"}} >{e.title}</IonCardTitle>
                                                 <br ></br>
                                                 <img src={e.image} height="350px" width="400px" />
                                             </IonCard>
@@ -150,7 +103,7 @@ class Dashboard extends React.Component {
                     </IonCard>
                 </IonContent>
 
-            </IonApp>
+            </IonPage>
         )
     }
 }
